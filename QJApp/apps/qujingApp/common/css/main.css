@@ -1,0 +1,112 @@
+html,body,.page{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.header{
+	width: 100%;
+	height: 6.5%;
+	background: #FF5A23;
+	position: relative;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+
+/*ÃƒÆ’Ã‚Â¥Ãƒâ€¦Ã‚Â¾ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â§ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂºÃƒâ€šÃ‚Â´ÃƒÆ’Ã‚Â¥Ãƒâ€šÃ‚Â±ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¤Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â­*/
+.abs-center{
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.PUBLIC-CENTER{
+	display:inline-block;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	position: relative;
+	top: 50%;
+	left: 50%;
+}
+.PUBLIC-CENTER-V{
+	 transform: translate(0%, -50%);
+	 /* -webkit-transform: translate(0%, -50%); */
+	 -moz-transform: translate(0%, -50%);
+	 position: relative;
+	 top: 50%;
+}
+
+.PUBLIC-CENTER-L{
+	transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);
+	-moz-transform: translate(-50%, 0%);
+	position: relative;
+	left: 50%;
+}
+
+.PUBLIC-CENTER-SPAN{
+	display:inline-block;
+	float: left;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	position: relative;
+	top: 50%;
+	left: 50%;
+	max-width: 100%;
+	white-space:nowrap;
+	/*overflow:hidden;*/
+	text-overflow:ellipsis;
+}
+.PUBLIC-CENTER-V-SPAN{
+	float: left;
+	/*display:inline-block;*/
+	transform: translate(0%, -50%);
+	-webkit-transform: translate(0%, -50%);
+	-moz-transform: translate(0%, -50%);
+	position: relative;
+	top: 50%;
+}
+.PUBLIC-CENTER-L-SPAN{
+	/*display:inline-block;*/
+	float: left;
+	transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);
+	-moz-transform: translate(-50%, 0%);
+	position: relative;
+	left: 50%;
+}
+.pub-header{
+	height: 6.5%;
+	background-color: #1DACF9;
+}
+
+.bottom-save{
+	position: fixed;
+	width: 90%;
+	height: 2.6rem;
+	color: #fff;
+	background-color: #1DACFA;
+	bottom: 1.4rem;
+	left: 50%;
+	transform: translate(-50%,0);
+	border-radius: 0.4rem;
+	line-height: 2.6rem;
+	text-align: center;
+}
+
+.box-clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.word-nowrap{
+	white-space: nowrap;
+	text-overflow: ellipsis ;
+	overflow:hidden;
+}

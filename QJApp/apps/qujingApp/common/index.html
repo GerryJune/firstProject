@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>qujingApp</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.min.css" />
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/qujing.css" />
+		<link rel="stylesheet" type="text/css" href="css/rolling-check.css" />
+		<script>
+				// window.$ = window.jQuery = WLJQ;
+		</script>
+	</head>
+
+	<body style="display: block;" id="app">
+		<!--application UI goes here-->
+		<div id="MaterialCheck" data-role='page' class='page'>
+			<div class="header box-clearfix">
+				<div class="header-right PUBLIC-CENTER-V"></div>
+			</div>
+			 <div class="MaterialCheck_app">
+				<div class="boxes-info" v-for="item in auxiliaryExamination" number='{{item.number}}'>
+					<div class="app-box box-clearfix">
+						<div class="box-left mertiral-name">{{item.center[0].key}}:</div>
+						<div class="box-middle mertiral-content">{{item.center[0].value}}</div>
+						<div class="box-right"></div>
+					</div>
+					<div class="app-box box-clearfix">
+						<div class="box-left fac-name">{{item.center[1].key}}:</div>
+						<div class="box-middle fac-content" onclick="" >{{item.center[1].value}}</div>
+						<div class="box-right box-icon-right"></div>
+					</div>
+					<div class="app-box box-clearfix">
+						<div class="box-left ischecked">是否合格:</div>
+						<div class="box-middle">
+							<div class="box-cirle" :class='{"box-cirle-on":item.qualified}' onclick="isGood('{{$index}}',auxiliaryExamination.data[0].list.text)">
+								<div class="sm-cirle" :class='item.qualified?"sm-cirle-right":"sm-cirle-left"' transition></div>
+							</div>
+						</div>
+						<div class="box-right"></div>
+					</div>
+				</div>
+				<div class="bottom-save">保 存
+				</div>
+			</div> 
+		</div>
+		<!-- 厂家选择 -->
+		<div id="selectionPage" data-role='page' class="page">
+			<div class="factoryChoose_fac" id="factory-wrap">
+				<div class="left"  v-for = "(i,item) in selectionPage" number="{{item.number}}" onclick="peopleChoose('{{$index}}',vm.selectionPage,vm.check)">
+					<div class="fac-left PUBLIC-CENTER-V" >
+						<div class="fac-left-icon" :class="{'fac-choose-yes':item.isSelected}"></div>
+					</div>
+					<div class="fac-name word-nowrap">{{item.text}}</div>
+				</div>
+			</div>
+			<div class="select-footer">
+				<div class="select-save">保存</div>
+			</div>
+		</div>
+		<!-- 条件筛选 -->
+		<div>
+			<div class="MaterialCheck_mask" style="display: none;"></div>
+			<div class="mask-content" style="display: none;" id="demo">
+				<div class="mask-item brand-num" >
+					<div class="item-header box-clearfix">
+						<span class="item-header-left">{{grade.data[0].grade[0].name}}</span>
+					</div>
+					<div class="item-content brand-num-span box-clearfix" >
+						<div class="vue-con mask-grade" onclick="chooseMask('{{$index}}','{{grade.data[0].grade[0].type}}','mask-grade')" :class='{"choose-active":item.isA}' v-for="item in grade.data[0].grade[0].option" number="{{item.number}}">{{item.name}}</div>
+					</div>
+				</div>
+				<div class="mask-item machine-style" v-if="model.data[0].model[0].name!=''">
+					<div class="item-header box-clearfix">
+						<span class="item-header-left">{{model.data[0].model[0].name}}</span>
+					</div>
+					<div class="item-content machine-style-span box-clearfix"  >
+						<div class="vue-con mask-model" onclick="chooseMask('{{$index}}','{{model.data[0].model[0].type}}','mask-model')" v-for="(i,item) in model.data[0].model[0].option"  v-bind:class="{ 'choose-active': item.isA}" number="{{item.number}}">{{item.name}}</div>
+					</div>
+				</div>
+				<div class="mask-item machine-group">
+					<div class="item-header box-clearfix">
+						<span class="item-header-left">{{crew.data[0].crew[0].name}}</span>
+					</div>
+					<div class="item-content machine-group-span box-clearfix">
+						<div class="vue-con mask-crew" onclick="chooseMask('{{$index}}','{{crew.data[0].crew[0].type}}','mask-crew')" v-for='(k,optj) in crew.data[0].crew[0].option' v-bind:class="{ 'choose-active': optj.isA}" >{{optj.name}}</div>
+					</div>
+				</div>
+				<div class="mask-ok">确 定</div>
+			</div>
+		</div>
+		<!-- vue页面 -->
+		<div id="vuePage" data-role='page' class="page">
+			<div class="header box-clearfix">
+				<div class="header-right PUBLIC-CENTER-V"></div>
+			</div>
+			<div class="factoryChoose_fac">
+				<div class="MaterialCheck_mask" style="display: block;"></div>
+				<div class="mask-content" style="display: block;" id="demo1">
+
+					<div class="mask-item brand-num" >
+						<div class="item-header box-clearfix">
+							<span class="item-header-left">{{grade.data[0].grade[0].name}}</span>
+						</div>
+						<div class="item-content brand-num-span box-clearfix" >
+							<div class="vue-con" onclick="showStyle('{{$index}}',gradeData.data[0].grade[0].option,'{{grade.data[0].grade[0].type}}')" :class='{"choose-active":item.isA}' v-for="item in grade.data[0].grade[0].option" number="{{item.number}}">{{$index}}+{{item.name}}+{{item.isA}}</div>
+						</div>
+
+					</div>
+					<div class="mask-item machine-style" v-for="key in model">
+						<div class="item-header box-clearfix">
+							<span class="item-header-left">{{model.data[0].model[0].name}}</span>
+						</div>
+						<div class="item-content machine-style-span box-clearfix"  >
+							<div class="vue-con " onclick="showStyle('{{$index}}',modelData.data[0].model[0].option,'{{model.data[0].model[0].type}}')" v-for="(i,item) in model.data[0].model[0].option"  v-bind:class="{ 'choose-active': item.isA}" number="{{item.number}}">{{i}}{{item.name}}</div>
+						</div>
+
+					</div>
+					<div class="mask-item machine-group">
+						<div class="item-header box-clearfix">
+							<span class="item-header-left">{{crew.data[0].crew[0].name}}</span>
+						</div>
+						<div class="item-content machine-group-span box-clearfix">
+							<div class="vue-con" onclick="showStyle('{{$index}}',crewData.data[0].crew[0].option,'{{crew.data[0].crew[0].type}}')" v-for='(k,optj) in crew.data[0].crew[0].option' v-bind:class="{ 'choose-active': optj.isA}" >{{optj.name}}</div>
+						</div>
+
+					</div>
+					<div class="mask-ok">确 定</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<!-- 综合数据 -->
+		<div id="comprehensive" data-role='page' class="page">
+			<div class="comprehensive-data">
+				<div class="comprehensive_list" >
+					<div class="comprehensive-item"  v-for = "(i,item) in comprehensive" number="{{item.number}}" >
+						<div class="comprehensive-con" >
+							<span v-for='opt in item.center'>{{opt.key}}:{{opt.value}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="bottom-submit">
+					<div class="bottom-btn"><span class="PUBLIC-CENTER-SPAN"> 保 存</span> </div>
+				</div>
+			</div>
+		</div>
+		<!-- 厂家详情 -->
+		<div id="auxiliaryExaminationDetails" data-role='page' class="page">
+			<div class="header box-clearfix">
+				<div class="header-right PUBLIC-CENTER-V"></div>
+			</div>
+			<div class="auxiliaryExaminationDetails-con" >
+				<div class="details-info box-clearfix" v-for="(i,item) in auxiliaryExaminationDetails">
+					<div>
+						<span class='left'>{{item.key}}:</span>
+						<span class='right' :style='{"color":item.color}'>{{item.value}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 卷包巡检 -->
+		<div id="inspection" >
+			<select name="" v-model='selected' id="" v-for='item in more'>
+				<option value="" v-for="opt in inspection.more" number='{{opt.number}}'>{{opt.name}}</option>
+			</select>
+		</div>
+		<!-- 已处理 -->
+		<div id="hasHandled" data-role='page' class="page ">
+			<div class="MaterialCheck_app">
+				<div class="boxes-info" v-for="item in hasHandled.data[0].list.text" number='{{item.number}}'>
+					<div class="app-box box-clearfix">
+						<div class="box-left ">{{item.center[0].key}} :</div>
+						<div class="box-middle ">{{item.center[0].value}}</div>
+						<div class="box-right"></div>
+					</div>
+					<div class="app-box box-clearfix">
+						<div class="box-left ">{{item.center[1].key}} :</div>
+						<div class="box-middle " onclick="" >{{item.center[1].value}}</div>
+						<div class="box-right box-icon-right"></div>
+					</div>
+					<div class="app-box box-clearfix">
+						<div class="box-left">{{item.center[2].key}} :</div>
+						<div class="box-middle" onclick="" >{{item.center[2].value}}</div>
+						<div class="box-right box-icon-right"></div>
+					</div>
+					<div class="app-box box-clearfix">
+						<div class="box-left">{{item.center[3].key}} :</div>
+						<div class="box-middle word-nowrap" onclick="" >{{item.center[3].value}}</div>
+						<div class="box-right box-icon-right"></div>
+					</div>
+					<div class="box-arrow-right"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 异常管理 -->
+		<div id="unusualManagement" class="page" data-role='page'>
+			<div class="MaterialCheck_app">
+				<div class="boxes-info">
+					<div class="app-box box-clearfix" v-for='item in unusualManagement.data[0].deta'>
+						<div class="box-left ">{{item.key}} :</div>
+						<div class="box-middle ">{{item.value}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="unusual-footer box-clearfix">
+				<div class="footer-left flex-center-tv">处理</div>
+				<div class="footer-right flex-center-tv style-active">流转</div>
+			</div>
+		</div>
+		<div id="newUsual" data-role='page' class="page">
+			<div class="MaterialCheck_app">
+				<div class="boxes-info">
+					<div class="app-box box-clearfix">
+						<div class="box-left ">类型 :</div>
+						<div class="box-middle ">{{unusualManagement.data[0].deta[0].value}}</div>
+					</div>
+				</div>
+				<div class="boxes-info">
+					<div class="app-box box-clearfix">
+						<div class="box-left ">类别 :</div>
+						<div class="box-middle ">{{unusualManagement.data[0].deta[0].value}}</div>
+					</div>
+				</div>
+				<div class="boxes-info">
+					<div class="app-box box-clearfix">
+						<div class="box-left ">日期 :</div>
+						<div class="box-middle ">{{unusualManagement.data[0].deta[0].value}}</div>
+					</div>
+				</div>
+				<div class="boxes-info">
+					<div class="app-box box-clearfix">
+						<div class="box-left ">内容 :</div>
+						<div class="box-middle app-box-last">
+							<textarea cols="30" rows="10" style="BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid;" data-role='none'></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="select-footer">
+				<div class="select-save">保存</div>
+			</div>
+		</div>
+		<script src="http://rawgit.com/nuysoft/Mock/refactoring/dist/mock-min.js"></script>
+		<!-- <script src="mock-api.js"></script> -->
+		<!-- <script src="js/initOptions.js"></script> -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/kunyan.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>
+		<script src="js/page.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vuemain.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="js/vuemain1.js" type="text/javascript" charset="utf-8"></script> -->
+	</body>
+
+</html>
