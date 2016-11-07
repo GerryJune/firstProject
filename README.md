@@ -2,7 +2,7 @@
 ## step one
 0  [github账号注册]:https://github.com
 
-1 `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+1 `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`<br/>
   cmd,打开控制台  邮箱替换为上面注册的邮箱<br/>
 2 `Generating public/private rsa key pair`  
   用上面命令生成ssy 密钥  
