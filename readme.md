@@ -20,38 +20,3 @@ Enter same passphrase again: [Type passphrase again]`
 [仓库->setting]:'imgs/1.png'
 ![步骤]("imgs/1.png")
 
-```
-
-MPreview({options});
-```
-#### options  说明
-参数名  | 默认值 | 类型 | 参数说明
-------- | ------ | ---- | --------
-data | `null` | {Array} | 存放需要展示的图片数据。`data: ['111.jpg', '2222.jpg', '3333.jpg']`
-title | `【浏览】` | {String} | 显示于组件头部的标题内容
-wrap | `body` | {String} | 指定在哪个容器下显示，支持 `document.querySelector` 的选择器。`如：.class, element, #id, ul > li`;
-direction | `top` | {String} | 指定图片按哪个方向切换，`top` 上下切换，`left` 左右切换。
-close | `null` | {Function} | 关闭组件时的回调方法
-## 代码说明
-```
-html
-<!--此处生成vue组件代码-->
-<img-preview></img-preview>
-javascript
-//组件注册
-    Vue.component('img-preview',{
-        template:'<ul class="img-list">'+ //组件模板
-                    '<li v-for="img in imgs" :number="img.number">'+
-                        '<a href="javascript:;" title=""><img :src="img.url" alt="图片1" /></a>'+
-                    '</li>'+
-                '</ul>',
-        data:function(){//将源数据赋予vue渲染页面
-            return {
-                imgs: imgs.data
-            }
-        },
-    })
-事件方法见代码注释index.
-```
-
-markdown preview
