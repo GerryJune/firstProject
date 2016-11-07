@@ -1,0 +1,253 @@
+/*ProductionKanban*/
+.lunbo{
+	height: 4em;
+	position: relative;
+}
+.lunbo .lunbo-pics{
+	/*width: 100;*/
+}
+.lunbo .lunbo-pics img{
+	width: 100%;
+	height: 4em;
+	display: none;
+}
+.lunbo .lunbo-pics img.pic-active{
+	display: block;
+}
+.lunbo-dots{
+	position: absolute;
+	bottom: 0.4em;
+	left: 50%;
+}
+.lunbo-dots span{
+	border-radius: 50%;
+	display: inline-block;
+	width: 0.4em;
+	height: 0.4em;
+	border: 1px solid #fff;
+}
+.lunbo-dots span.dot-active{
+	background-color: #FF5A23;
+}
+.workshops>div{
+	width: 33.3%;
+	margin-top: 2em;
+	float: left;
+}
+.rolling-text {
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
+/*æˆåž‹è½¦é—´*/
+.molding-tables{
+	overflow: auto;
+	height: 100%;
+	background: #333333;
+}
+.molding-tables .molding-table{
+	width: 50%;
+	background-color: #273947;
+	box-sizing: border-box;
+	float: left;
+	border-left: 6px solid;
+	border-top: 6px solid;
+	height: 16.6%;
+	position: relative;
+}
+.molding-tables .molding-table:nth-child(2n){
+	border-right: 6px solid;
+}
+.molding-table .molding-pic{
+	width: 41%;
+	margin-top: 0.6em;
+}
+.molding-tables .molding-table .molding-text{
+	color: #fff;
+	margin-bottom: 1em;
+	font-size: 0.8em;
+	margin-top: 0.2em;
+}
+.molding-table .adding-pic{
+	width: 1.5em;
+}
+/*Production_order*/
+#Production_order .center{
+	background-color: #000000;
+}
+.header-choose-show .trangle{
+	width: 0.4em;
+	height: 0.4em;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	margin-left: 1.4em;
+	float: left;
+}
+.trangle-down{
+	transform: translate(0,-50%) rotate(-45deg);
+}
+.trangle-up{
+	transform: rotate(135deg);
+}
+.header-choose-show{
+	/* margin-bottom: 5px; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #344C5E;
+	width: 104%;
+	margin-left: -2%;
+}
+.pro-chooses{
+	height: 10em;
+	display: none;
+}
+.pro-chooses .pro-choose{
+	height: 25%;
+	border-bottom: 1px solid #293C4B;
+	position: relative;
+	background-color: #293C4B;
+}
+.pro-table{
+	overflow-x: auto;
+	width: 96%;
+	margin-top: 0.5em;
+}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background-color:#3F4F5B;}
+::-webkit-scrollbar-thumb{background-color:#00aff0;}
+::-webkit-scrollbar-thumb:hover {background-color:#9c3}
+::-webkit-scrollbar-thumb:active {background-color:#00aff0}
+.pro-table table{
+	border-style: none;
+	color: #fff;
+	background-color: #273947;
+}
+.pro-table table tr{
+	height: 2em;
+}
+.pro-table th,td{
+	width: 16%;
+	border-style: none;
+	border: 1px solid #293E4D;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	font-size: 0.8em;
+}
+/*å›žæ½®æœº*/
+#Damping_machine .damping-wrap{
+	height: auto;
+	padding: 0.5em;
+}
+#Damping_machine  .center{
+	background-color: #142831;;
+}
+.damping-wrap .damping-head{
+	height: 3em;
+	color: #fff;
+	font-size: 0.5em;
+	margin-left: 1em;
+	position: relative;
+}
+.damping-head-title{
+	text-align: left;
+	margin-bottom: 0.4em;
+	
+}
+.damping-head-title:before{
+	content: '';
+	width: 0.4em;
+	height: 0.4em;
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 0.4em;
+	left: -0.8em;
+}
+.damping-head-info{
+	float: left;
+	font-size: 0.3em;
+	color: #9D9E9F;
+}
+.damping-boxes{
+	margin-top: 0.5em;
+}
+.damping-boxes .damping-box{
+	width: 33.33%;
+	height: 7em;
+	box-sizing: border-box;
+	border-right: 6px solid #142831;
+	border-bottom: 6px solid #142831;
+	background-color: #273947;
+	float: left;
+	padding: 0.6em;
+	position: relative;
+}
+.damping-box:nth-child(3n){
+	border-right: 0px 
+}
+.damping-boxes .damping-box-head{
+	color: #9D9E9F;
+	text-align: left;
+	font-size: 0.6em;
+}
+.damping-boxes .damping-box-num{
+	color: #9D9E9F;
+	font-size: 1.8em;
+	color: #04CC8E;
+	bottom: 0.5em;
+	display: block;
+	position: absolute;
+}
+.damping-box-add{
+	background: url(../images/createForm.png) center center no-repeat;
+	height: 6em;
+}
+/* 成型 - 生产看板 */
+.dif-box{
+	width: 50%;
+	box-sizing: border-box;
+	border-right: 6px solid #142831;
+	border-bottom: 6px solid #142831;
+	background-color: #273947;
+	float: left;
+	padding: 0.6em;
+	position: relative;
+	color: #fff;
+}
+.dif-box-item{
+	padding: 0.6rem 0;
+}
+.dif-box:nth-child(2n){
+	border-right: none;
+}
+.dif-head{
+	vertical-align: middle;
+	text-align: center;
+	width: 50%;
+	height: 7em;
+	box-sizing: border-box;
+	float: left;
+	position: relative;
+}
+.dif-box-title{
+	text-align: left;
+	/* margin-bottom: 1em; */
+}
+.dif-head-span{
+	text-align: center;
+	/* vertical-align: middle; */
+	/* padding-top: 3em; */
+	font-size: 2rem;
+	/* margin-top: 1rem; */
+}
+.dif span{
+	color: #fff;
+}
+.dif-box-left{
+	
+float: left;
+}
+.dif-box-right{
+float: right;
+}

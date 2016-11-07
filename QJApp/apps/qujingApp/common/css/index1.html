@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>qujingApp</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/ProductionKanban.css">
+		<script>
+			window.$ = window.jQuery = WLJQ;
+		</script>
+	</head>
+	<body style="display: none;">
+		<!-- <div class="header">
+			<img src="images/left.png" class="PUBLIC-CENTER-V header-back-icon" />
+			<span class="PUBLIC-CENTER-V-SPAN header-back-title" >制丝车间</span>
+			<span class="abs-center header-center">加香机</span>
+		</div> -->
+		<div id="ProductionKanban" data-role='page' class="page" >
+			<div class="center">
+				<div class="lunbo">
+					<div class="lunbo-pics">
+						<img class="pic-active" src="images/lunbo-1.png" />
+						<img src="images/SilkWorkshop.png" />
+					</div>
+					<div class="lunbo-dots">
+						<span class="dot-active"></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="workshops">
+					<div class="RollPackingWorkshop" onclick="swichPagePub (nextPage)">
+						<img src="images/RollingPackage.png" alt="" />
+						<div class="rolling-text">卷包车间</div>
+					</div>
+					<div class="RollPackingWorkshop" onclick="swichPagePub ('RollPackingWorkshop')">
+						<img src="images/SilkWorkshop.png" alt="" />
+						<div class="rolling-text">制丝车间</div>
+					</div>
+					<div class="RollPackingWorkshop" onclick="swichPagePub ('formingHome')">
+						<img src="images/MoldingWorkshop.png" alt="" />
+						<div class="rolling-text">成型车间</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="RollPackingWorkshop" data-role='page' class="page" >
+			<div class="center">
+				<div class="molding-tables">
+					<div class="molding-table" onclick="swichPagePub ('Production_order')">
+						<img class="molding-pic" src="images/Production_order.png" alt="" />
+						<div class="molding-text">生产调度令</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('dampingMachine')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">回潮机</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('feedingMachine')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">加料机</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('shreddingMachine')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">切丝机</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('altah')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">环境温湿度</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('dryingMachine')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">烘丝机</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('perfumingMachine')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">加香机</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="Production_order" data-role="page" class="page">
+			<div class="center">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">叶片丝</span>
+					<div class="trangle trangle-down"></div>
+				</div>
+				<div class="pro-chooses">
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">叶片丝</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">配叶柜线</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">切烘丝</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">配丝柜-混丝柜</span>
+					</div>
+				</div>
+				<div class="pro-table PUBLIC-CENTER-L">
+					<table border="1" cellspacing="0" cellpadding="0" bordercolor="#324350">
+						<tr>
+							<th>批次号</th>
+							<th>线别</th>
+							<th>牌号</th>
+							<th>Header</th>
+							<th>Header</th>
+							<th>Header</th>
+							<th>Header</th>
+						</tr>
+						<tr>
+							<td>Data</td>
+							<td>Data</td>
+							<td>Data</td>
+							<td>Data</td>
+							<td>Data</td>
+							<td>Data</td>
+							<td>Data</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--回潮机-->
+		<div id="dampingMachine" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">TB11</span>
+					<div class="trangle trangle-down"></div>
+				</div>
+				<div class="pro-chooses">
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">ST11</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >FT611</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text"  >SD411</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >TT41</span>
+					</div>
+				</div>
+				<div class="pub-wrap-dataList">
+				<!--<div class="pub-wrap-header">
+						<div class="pub-header-title">
+							叶片预处理A线松散回潮机TB-L
+						</div>
+						<div class="pub-header-infos">
+							<div class="pub-header-info">
+								<span class="pub-header-name">牌号: </span>
+								<span class="pub-header-item">云烟</span>
+							</div>
+						</div>
+						
+					</div>-->
+					<!--<div class="pub-wrap-content pub-boxes">
+						<div class="pub-box">
+							<div class="pub-box-title">标题</div>
+							<span class="item1 pub-box-item pub-box-active">item1</span>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<div id="feedingMachine" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">ST11</span>
+					<div class="trangle trangle-down"></div>
+				</div>
+				<div class="pro-chooses">
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">ST11</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >FT611</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text"  >SD411</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >TT41</span>
+					</div>
+				</div>
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="shreddingMachine" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">SD411</span>
+					<div class="trangle trangle-down"></div>
+				</div>				
+				<div class="pro-chooses">
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">ST11</span>
+					</div>
+					<div class="header pro-choose" ">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >FT611</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text"  >SD411</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >TT41</span>
+					</div>
+				</div>
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="altah" data-role="page" class="page">
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="dryingMachine" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">SD411</span>
+					<div class="trangle trangle-down"></div>
+				</div>
+				<div class="pro-chooses">
+					<div class="header pro-choose" onclick="">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">ST11</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >FT611</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text"  >SD411</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >TT41</span>
+					</div>
+				</div>
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="perfumingMachine" data-role="page" class="page">
+		
+			<div class="center pub-wrap">
+				<div class="header header-choose-show">
+					<span class="header-choose-title">SD411</span>
+					<div class="trangle trangle-down"></div>
+				</div>
+				<div class="pro-chooses">
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text">ST11</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >FT611</span>
+					</div>
+					<div class="header pro-choose">
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text"  >SD411</span>
+					</div>
+					<div class="header pro-choose" >
+						<span class="PUBLIC-CENTER-SPAN pro-choose-text" >TT41</span>
+					</div>
+				</div>
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="formingHome" data-role="page" class="page">
+			<div class="center">
+				<div class="molding-tables">
+					<div class="molding-table" onclick="swichPagePub ('formingKanban')">
+						<img class="molding-pic" src="images/Production_order.png" alt="" />
+						<div class="molding-text">生产看板</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('removeDust')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">除尘</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('refrigeration')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">制冷</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('wasteTobacco')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">废烟丝</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('formingInfo')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">基本信息</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('glycerol')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">甘油</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub ('exchangeCenter')">
+						<img class="molding-pic" src="images/Damping_machine.png" alt="" />
+						<div class="molding-text">交换中心</div>
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+					<div class="molding-table" onclick="swichPagePub (nextPage)">
+						<img class="adding-pic abs-center" src="images/createForm.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="formingKanban" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+					<div class="pub-wrap-content pub-boxes dif">
+						<div class="dif-box dif-head" >
+							<div class="dif-box-title">标题</div>
+							<span class="dif-head-span abs-center" >item1</span>
+						</div>
+						<div class="dif-box dif-head" >
+							<div class="dif-box-title">标题</div>
+							<span class="dif-head-span abs-center" >item1</span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="pub-wrap-dataList">
+					<div class="pub-wrap-content pub-boxes dif">
+						<div class="dif-box dif-box-fir">
+							<div class="dif-box-title box-title">标题</div>
+							<div class="dif-box-item" style="clear:both">
+								<span class="dif-box-left">一班</span>
+								<span class="dif-box-right">item1</span>
+							</div>
+							<div class="dif-box-item" style="clear:both">
+								<span class="dif-box-left">一班</span>
+								<span class="dif-box-right">item1</span>
+							</div>
+							<div class="dif-box-item" style="clear:both">
+								<span class="dif-box-left">一班</span>
+								<span class="dif-box-right">item1</span>
+							</div>
+							<div class="dif-box-item" style="clear:both">
+								<span class="dif-box-left">一班</span>
+								<span class="dif-box-right">item1</span>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div id="removeDust" data-role="page" class="page">
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="refrigeration" data-role="page" class="page">
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="wasteTobacco" data-role="page" class="page">
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="formingInfo" data-role="page" class="page">
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<div id="glycerol" data-role="page" class="page">
+			
+			<div class="center pub-wrap">
+				<div class="pub-wrap-dataList">
+				</div>
+			</div>
+		</div>
+		<script src="js/qujingData.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/initOptions.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js"></script>
+		<script src="js/productionKanban.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
