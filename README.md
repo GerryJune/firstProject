@@ -17,6 +17,6 @@
 
 * 安装git客户端(安装包上传至APP开发群)
 * github邀请到开发团队,步骤如下
-[仓库->setting]:'imgs/1.png'
-![步骤]("imgs/1.png")
+[仓库->setting]:'https://raw.githubusercontent.com/GerryJune/firstProject/master/imgs/1.png'
+![步骤]("https://raw.githubusercontent.com/GerryJune/firstProject/master/imgs/1.png")
 
