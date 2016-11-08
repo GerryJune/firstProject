@@ -1,7 +1,8 @@
-function() {
+function sad() {
 	console.log(333);
 }
 
-function() {
-	alert('msg');
+function ad() {
+	alert('msg123');
+	alert('msgsa');
 }
