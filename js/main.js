@@ -15,6 +15,9 @@ function alsss3321(){
 function alsss122(){
 	
 }
+function() {
+	klsfsdfjdls
+}
 // dasdasdasd
 function dsfdsf12312(){
 	return "gejianhui"
@@ -38,7 +41,12 @@ function tangwei111(arguments) {
 }
 function tangwei222(arguments) {
 	console.log(23333);
+	alert6dffsdgasdg
 }
+function tangwei333(arguments) {
+	alert('33333');
+}
+
 function tangwei333(arguments) {
 	alert('33333');
 }
