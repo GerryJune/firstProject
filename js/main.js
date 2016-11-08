@@ -4,10 +4,18 @@ function dsfd() {
 
 function dsfdsf() {
 	alert('m123');
-	alert('msgsa');
+
+	console.log(dasdsadsadas)
+
+function alsss3321(){
+	
 }
-
-
+function alsss122(){
+	
+}
+function (){
+	return "gejianhui"
+}
 
 
 
