@@ -1,4 +1,3 @@
-
 function dsfd() {
 	console.log(333);
 }
@@ -17,3 +16,24 @@ function dsfdsf12312(){
 	return "gejianhui"
 }
 
+
+
+
+
+
+
+
+
+
+
+
+// tw
+function tangwei111(arguments) {
+	
+}
+function tangwei222(arguments) {
+	
+}
+function tangwei333(arguments) {
+	
+}
