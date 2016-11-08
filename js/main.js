@@ -6,14 +6,17 @@ function dsfdsf() {
 	alert('m123');
 
 	console.log(dasdsadsadas)
-
-function alsss3321(){
-	
 }
+// asfsaljdasd
+function alsss3321(){
+	console.log(12213213)
+}
+// adsjlakjdlk
 function alsss122(){
 	
 }
-function (){
+// dasdasdasd
+function dsfdsf12312(){
 	return "gejianhui"
 }
 
