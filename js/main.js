@@ -1,9 +1,9 @@
 
-function sad() {
+function dsfd() {
 	console.log(333);
 }
 
-function ad() {
+function dsfdsf() {
 	alert('m123');
 	alert('msgsa');
 	console.log('tangwei  new');
