@@ -39,6 +39,11 @@ function tangwei111(arguments) {
 function tangwei222(arguments) {
 	console.log(23333);
 }
+
+function asdasd(){
+	console.log('sadsad')
+}
+
 function tangwei333(arguments) {
 	alert('33333');
 }
