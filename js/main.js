@@ -1,4 +1,3 @@
-
 function dsfd() {
 	console.log(333);
 }
@@ -6,19 +5,36 @@ function dsfd() {
 function dsfdsf() {
 	alert('m123');
 	alert('msgsa');
-	console.log('tangwei  new');
+}
+
+function alsss(){
+
+}
+function alsss3321(){
+	
+}
+function alsss122(){
+	
 }
 
 
 
-// 下面是汤伟  新加的
 
-function() {
-	alert('msgmsgmsgmsg');
+
+
+
+
+
+
+
+
+// tw
+function tangwei111(arguments) {
+	
 }
-function() {
-	dfjdslfdsf
+function tangwei222(arguments) {
+	
 }
-function() {
-	dfjdslfdsf
+function tangwei333(arguments) {
+	
 }
