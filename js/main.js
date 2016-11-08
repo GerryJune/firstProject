@@ -4,7 +4,7 @@ function sad() {
 }
 
 function ad() {
-	alert('msg123');
+	alert('m123');
 	alert('msgsa');
 	console.log('tangwei  new');
 }
