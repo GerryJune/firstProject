@@ -33,11 +33,13 @@ function dsfdsf12312(){
 
 // tw
 function tangwei111(arguments) {
-
+	console.log("dasdsadasdsada");
 	alert(22222)
 }
 function tangwei222(arguments) {
 	console.log(23333);
+	console.log("jsjsjsjs");
+	console.log("dasdsadasdsada");
 }
 
 function asdasd(){
