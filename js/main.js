@@ -1,9 +1,10 @@
-function sad() {
+
+function dsfd() {
 	console.log(333);
 }
 
-function ad() {
-	alert('msg123');
+function dsfdsf() {
+	alert('m123');
 	alert('msgsa');
 }
 
@@ -16,3 +17,4 @@ function alsss3321(){
 function alsss122(){
 	
 }
+
