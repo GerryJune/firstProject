@@ -16,4 +16,9 @@ function dsfdsf() {
 function() {
 	alert('msgmsgmsgmsg');
 }
-document.
+function() {
+	dfjdslfdsf
+}
+function() {
+	dfjdslfdsf
+}
